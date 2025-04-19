@@ -1,0 +1,55 @@
+import * as Vue from 'vue'
+// import { createRouter, createWebHistory } from 'vue-router'
+import * as VueRouter from 'vue-router'
+// import HomeView from '../views/HomeView.vue'
+// import Header from './components/Header'
+import Form from '@/components/Form.vue'
+import Main from '@/components/Main.vue'
+
+// Vue.use(Router)
+
+const routes = [
+   {
+      path: '/',
+      name: 'iMain',
+      component: Main,
+      props: true,
+   },
+   {
+      path: '/form',
+      name: 'Form',
+      component: Form,
+      props: true,
+   }
+];
+
+const router = VueRouter.createRouter({
+   history: VueRouter.createWebHashHistory(),
+   mode: 'history',
+   routes,
+});
+// const app = Vue.createApp({})
+
+// app.use(router)
+
+// app.mount('#app')
+
+export default router;
+// export default new Router({
+//    mode: 'history',
+//    routes: [
+//       {
+//          path: '/',
+//          name: 'iMain',
+//          component: Main,
+//          props: true,
+//       },
+//       {
+//          path: '/form',
+//          name: 'Form',
+//          component: Form,
+//          props: true,
+//       },
+//    ]
+// })
+
