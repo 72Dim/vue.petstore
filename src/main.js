@@ -1,10 +1,12 @@
 import './assets/main.css'
 import './assets/app.css'
 
-// import { createApp } from 'vue'
-import * as Vue from 'vue'
+// import Vue from 'vue' // так не работает
+// import * as Vue from 'vue' // работает
+import { createApp } from 'vue' // рекомендуемый способ создания компонентов Vue
+
 import App from './App.vue'
-import router from './router'
+// import router from './router'
 
 // import Header from './Header.vue'
 // import Form from '@/components/Header'
@@ -13,13 +15,21 @@ import router from './router'
 
 // Vue.config.productionTip = false
 
-// const app = createApp(App)
-const app = Vue.createApp({
-   el: '#app',
-   router,
-   template: '<App/>',
-   components: { App }
+const app = createApp({
+      el: '#app',
+   // router,
+   template: '<App/>', // `<p>Helow</p>`,
+   // components: { App }
 });
+app.component('App', App);
+// const app = Vue.createApp({
+//    el: '#app',
+//    // router,
+//    template: '<App/>',
+//    components: { App }
+// });
+app.mount('#app')
+
 // app.component('TodoDeleteButton', TodoDeleteButton)
 // app.use(router)
 
@@ -31,4 +41,3 @@ const app = Vue.createApp({
 //    components: { App }
 // })
 // .mount('#app');
-app.mount('#app')

@@ -10,13 +10,14 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"
       data-infa="работает">
    </script> -->
-   <!-- <script type="importmap">
-      {
-        "imports": {
-          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
-        }
-      }
-    </script> -->
+   <!--  <script type="importmap">
+            {
+               "imports": {
+                  "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+               }
+            }
+         </script>
+    -->
 
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
       crossorigin="anonymous">
@@ -26,21 +27,28 @@
 <body>
    <div id="app">
       <!-- Hello Vue! -->
+       <H1>
+         Options API
+       </H1>
+       <p>
+         Options API С помощью этого стиля мы определяем логику компонента, используя объект опций, таких как data, methodsи mounted. Свойства, определяемые опциями, отображаются во thisвнутренних функциях, которые указывают на экземпляр компонента:
+       </p>
    </div>
    <script type="module" src="/src/main.js"></script>
-   
-   <!-- <div id="app">{{ message }}</div>
-   <script type="module">
-      import { createApp } from 'vue'
 
-      createApp({
-         data() {
-            return {
-            message: 'Hello Vue!'
+   <!-- <div id="app">{{ message }}</div> -->
+   <!-- <script type="module">
+         import { createApp } from 'vue'
+
+         createApp({
+            data() {
+               return {
+               message: 'Hello Vue!'
+               }
             }
-         }
-      }).mount('#app')
-   </script> -->
+         }).mount('#app')
+      </script>
+   -->
 </body>
 
 </html>
