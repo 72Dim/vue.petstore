@@ -25,6 +25,7 @@
        </div>
    </header>
 </template>
+
 <script type="module">
    export default {
       name: 'my-header',
@@ -41,6 +42,7 @@
       }
    }
 </script>
+
 <!-- Атрибут "scoped" ограничивает область видимости CSS текущим компонентом -->
 <style scoped>
    .wrap-for-header {
@@ -79,7 +81,7 @@
    }
 
    .test-computed-properties,
-   .product-cats,
+   .products-for-animals,
    .about-product {
        display: inline-block;
    }

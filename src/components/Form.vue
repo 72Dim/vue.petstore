@@ -95,24 +95,25 @@
    </div>
 </template>
    <!-- <script type="importmap">
-   {
-      "imports": {
-         "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
-      }
-   }
-   </script> -->
-
-   <!-- <script type="module">
-   import { createApp } from 'vue'
-
-   createApp({
-      data() {
-         return {
-         message: 'Hello Vue!'
+      {
+         "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
          }
       }
-   }).mount('#app')
-   </script> -->
+      </script>
+
+      <script type="module">
+      import { createApp } from 'vue'
+
+      createApp({
+         data() {
+            return {
+            message: 'Hello Vue!'
+            }
+         }
+      }).mount('#app')
+      </script>
+   -->
 
 <script type="module">
    import MyHeader from './Header.vue';
@@ -192,7 +193,7 @@
       }
 
       .test-computed-properties,
-      .product-cats,
+      .products-for-animals,
       .about-product {
          display: inline-block;
       }

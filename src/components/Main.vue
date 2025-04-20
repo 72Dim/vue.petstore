@@ -1,74 +1,83 @@
 <template>
    <div class="page-show-product">
       <my-header :cartItemCount="cartItemCount"></my-header>
-      <div v-for="product in sortedProducts">
+      <!-- <div v-for="product in sortedProducts"> -->
+      <div v-for="product in products">
          <div class="row">
-            <div class="col text-center test-computed-properties">
-               <span>Test computed properties.</span><!-- вычисляемые свойства -->
-               <p>Area is equal to: {{ area }}</p>
-               <button v-on:click="length += 1">Add length</button>
-               <button v-on:click="width  += 1">Add width</button>
-            </div>
-            <div class="col product-cats">
-               <!-- <figure></figure><img v-bind:src="product.image" alt="Cat"> -->
-               <img :src="product.image" alt="Animal">
-            </div>
-            <div class="col text-center about-product">
-               <h1 v-text="product.title"></h1>
-               <p v-html="product.description"></p>
-               <p v-text="product.price"></p>
-               <button class="btn btn-primary btn-lg"
-                  v-on:click="addToCart(product)"
-                  v-if="canAddToCart(product)">
-                  Add to cart
-               </button>
-               <button v-else class="btn btn-primary btn-lg" disabled="true">
-                  Add to cart
-               </button>
-               <span class="inventary-message"
-                  v-if="product.availableInventory - cartCount(product.id) === 0">
-                  All Out!
-               </span>
-               <span class="inventary-message"
-                  v-else-if="product.availableInventory - cartCount(product.id) < 5">
-                  Only {{product.availableInventory - cartCount(product.id)}} left!
-               </span>
-               <span class="inventary-message"
-                  v-else>
-                  Buy Now!
-               </span>
-               <div class="rating">
-                  <!-- <span v-bind:class="{'rating-active': checkRating(n)}"
-                  v-for="n in 5">☆
-               </span> v-for="n in 5">
-               v-bind:class="{'rating-active': checkRating(n)}">
-            -->
-                  <span v-for="n in 5" class="rating-active">
-                     <svg v-if="checkRating(n, product)"
-                        class="bi bi-star-fill"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="currentColor" viewBox="0 0 16 16">
-                        <path
-                           d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                     </svg>
-                     <svg v-else
-                        class="bi bi-star"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="currentColor" viewBox="0 0 16 16">
-                        <path
-                           d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
-                     </svg>
+            <!-- <h1 v-text="product.title"
+               v-bind:id="product.id">
+            </h1> -->
+            <div class="row">
+               <div class="col text-center test-computed-properties">
+                  <span data-infa="вычисляемые свойства">
+                     Test computed properties.
                   </span>
+                  <p>Area is equal to: {{ area }}</p>
+                  <button v-on:click="length += 1">Add length</button>
+                  <button v-on:click="width  += 1">Add width</button>
+               </div>
+               <div class="col products-for-animals"
+                  data-infa="<figure></figure><img v-bind:src='product.image' alt='Cat'">
+                  <img :src="product.image" alt="Animal">
+               </div>
+               <div class="col text-center about-product">
+                  <h1 v-text="product.title"></h1>
+                  <p v-html="product.description"></p>
+                  <p v-text="product.price"></p>
+                  <!-- <button class="btn btn-primary btn-lg"
+                  v-on:click="addToCart(product)"> -->
+                  <!-- <button class="btn btn-primary btn-lg"
+                     v-on:click="addToCart(product)"
+                     v-if="canAddToCart(product)"> -->
+                     <!-- Add to cart
+                  </button> -->
+                  <!-- <button v-else class="btn btn-primary btn-lg" disabled="true">
+                     Add to cart
+                  </button> -->
+                  <!-- <span class="inventary-message"
+                     v-if="product.availableInventory - cartCount(product.id) === 0">
+                     All Out!
+                  </span>
+                  <span class="inventary-message"
+                     v-else-if="product.availableInventory - cartCount(product.id) < 5">
+                     Only {{product.availableInventory - cartCount(product.id)}} left!
+                  </span>
+                  <span class="inventary-message"
+                     v-else>
+                     Buy Now!
+                  </span> -->
+                  <div class="rating"
+                     data-infa="<span v-bind:class=`{'rating-active': checkRating(n)}`
+                           v-for=`n in 5`>☆</span> v-for=`n in 5`>
+                        v-bind:class=`{'rating-active': checkRating(n)}`">
+                     <span v-for="n in 5" class="rating-active">
+                        <svg v-if="checkRating(n, product)"
+                           class="bi bi-star-fill"
+                           xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg v-else
+                           class="bi bi-star"
+                           xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
+                        </svg>
+                     </span>
+                  </div>
                </div>
             </div>
+            <hr />
          </div>
-         <hr />
       </div>
    </div><!-- End page showProduct -->
 </template>
 
 <!-- <script setup> -->
-<script type="module">
+<!-- <script type="module"> -->
+<script>
    // import axios from 'axios';
    import MyHeader from './Header.vue';
 
@@ -77,7 +86,6 @@
       name: 'iMain',
       data() {
          return {
-            // products: {},
             cart: [],
             products: [
                {
@@ -86,7 +94,7 @@
                   description: "A 25 pound bag of <em>irresistible</em>,"
                      + "organic goodness for your dog.",
                   price: 2000,
-                  image: "/src/assets/images/Cat.png",
+                  image: "/static/images/Cat.png",
                   availableInventory: 10,
                   rating: 1
                },
@@ -96,7 +104,7 @@
                   description: "A 25 pound bag of <em>irresistible</em>,"
                      + "organic goodness for your dog.",
                   price: 2000,
-                  image: "/src/assets/images/Dog.png",
+                  image: "/static/images/Dog.png",
                   availableInventory: 7,
                   rating: 1
                },
@@ -106,7 +114,7 @@
                   description: "A 25 pound bag of <em>irresistible</em>,"
                      + "organic goodness for your dog.",
                   price: 2000,
-                  image: "/src/assets/images/Cat_myau.png",
+                  image: "/static/images/Cat_myau.png",
                   availableInventory: 99,
                   rating: 4
                },
@@ -117,7 +125,7 @@
                   description: "A 25 pound bag of <em>irresistible</em>,"
                      + "organic goodness for your dog.",
                   price: 2000,
-                  image: "/src/assets/images/Smol_cat.png",
+                  image: "/static/images/Smol_cat.png",
                   availableInventory: 11,
                   rating: 5
                },
@@ -127,7 +135,7 @@
                   description: "A 25 pound bag of <em>irresistible</em>,"
                      + "organic goodness for your dog.",
                   price: 2000,
-                  image: "/src/assets/images/Frands.png",
+                  image: "/static/images/Frands.png",
                   availableInventory: 25,
                   rating: 1
                }
@@ -135,6 +143,7 @@
          }
       },
       components: { MyHeader },
+      props: {},
       filters: {},
       methods: {
          addToCart: function () { // Срабатывает после клика по кн. Add to cart
@@ -151,7 +160,7 @@
             alert('Submitted');
          },
          checkRating(n) {
-            return this.product.rating - n >= 0;
+            // return this.product.rating - n >= 0;
          }
       },
       computed: { // вычисляемые
@@ -162,7 +171,7 @@
             return this.cart.length || '';
          },
          canAddToCart: function () {
-            return this.product.availableInventory > this.cartItemCount;
+            // return this.product.availableInventory > this.cartItemCount;
          }
       },
       watch: { // смотреть, наблюдать

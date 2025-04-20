@@ -1,4 +1,5 @@
-<script>
+<!-- <script type="module" data-infa="работает"> -->
+<script data-infa="работает">
 export default {
   // Properties returned from data() become reactive state
   // and will be exposed on `this`.
@@ -27,12 +28,12 @@ export default {
 
 <template>
    <div class="container text-center">
-      <H1 class="">
+      <h1>
          Options API
-       </H1>
-       <p>
+      </h1>
+      <p>
          Options API С помощью этого стиля мы определяем логику компонента, используя объект опций, таких как data, methodsи mounted. Свойства, определяемые опциями, отображаются во thisвнутренних функциях, которые указывают на экземпляр компонента:
-       </p>
+      </p>
       <button @click="increment">Count is: {{ count }}</button>
    </div>
 </template>
