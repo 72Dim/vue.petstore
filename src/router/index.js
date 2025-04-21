@@ -14,6 +14,7 @@ const routes = [
       path: '/',
       name: 'iMain',
       component: Main,
+      // or component: () => import("@/views/HomePage.vue"),
       props: true,
    },
    {
@@ -24,13 +25,14 @@ const routes = [
    }
 ];
 
-const router = VueRouter.createRouter({
+export const router = VueRouter.createRouter({
    history: VueRouter.createWebHashHistory(),
-   // mode: 'history',
+   mode: 'history',
    routes: routes,
 });
 
-export default router;
+// export default router;
+//todo export default router  -становится устаревшим (неиспользуемым).
 
 // const app = Vue.createApp({})
 

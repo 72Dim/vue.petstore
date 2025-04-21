@@ -1,28 +1,31 @@
 <template>
    <header>
-       <div class="navbar navbar-default" style="background-color: brown;">
-           <div class="row" style="margin: 0;">
-               <div class="col-10 wrap-for-header">
-                   <header class="text-left header-properties">
-                       <h1>
-                           <route-link :to="{name: 'iMain'}">
-                               {{ sitename }}
-                           </route-link>
-                       </h1>
-                   </header>
+      <div class="navbar navbar-default" style="background-color: brown;">
+         <div class="row" style="margin: 0;">
+            <div class="col-10 wrap-for-header">
+               <header class="text-left header-properties">
+                  <h1>
+                     <router-link :to="{name: 'iMain'}">
+                           {{ sitename }}
+                     </router-link>
+                     <!-- <RouterLink to="/">Home</RouterLink> -->
+                  </h1>
+               </header>
+            </div>
+            <div class="col-2 wrap-btn-checkout">
+               <div class="nav navbar-nav navbar-right for-btn-checkout">
+                  <button type="button"
+                     class="btn btn-default btn-lg">
+                     <!-- v-on:click="showCheckout"> -->
+                     <span class="glyphicon">
+                           <!-- [{{ cartItemCount }}] Checkout -->
+                           [] Checkout
+                     </span>
+                  </button>
                </div>
-               <div class="col-2 wrap-btn-checkout">
-                   <div class="nav navbar-nav navbar-right for-btn-checkout">
-                       <button type="button" class="btn btn-default btn-lg" v-on:click="showCheckout">
-                           <span class="glyphicon">
-                               [{{ cartItemCount }}] Checkout
-                           </span>
-                       </button>
-
-                   </div>
-               </div>
-           </div>
-       </div>
+            </div>
+         </div>
+      </div>
    </header>
 </template>
 
@@ -34,11 +37,11 @@
             sitename: "Vue test.",
          }
       },
-      props: ['cartItemCount'],
+      // props: ['cartItemCount'],
       methods: {
-         showCheckout() {
-            this.$router.push({name: 'Form'});
-         }
+         // showCheckout() {
+         //    this.$router.push({name: 'Form'});
+         // }
       }
    }
 </script>

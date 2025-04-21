@@ -9,7 +9,9 @@ import { createApp } from 'vue' //todo рекомендуемый способ �
 // import router from '../index.js'    //* не работает
 // import router from '/src/router/index.js' //? работает
 // import router from './router/index.js' //? работает
-import router from './router'           //? работает
+// import router from './router'           //? работает
+import { router } from "./router";     // !!!
+
 
 import Header from './components/Header.vue' //? работает
 // import Form from '@/components/Header'
@@ -18,18 +20,20 @@ import Main from './components/Main.vue'
 
 // Vue.config.productionTip = false
 
-const app = createApp({
-   el: '#app',
-   // router: router, //? работает
-   router,            //? сокращёная запись работает
-   template: '<Main/>', // `<p>Helow</p>`,
-   components: {
-      // Header,
-      // Form,
-      Main
-   }
-   
-});
+// const app = createApp({
+//    el: '#app',
+//    // router: router, //? работает
+//    router,            //? сокращёная запись работает
+//    template: '<Main/>', // `<p>Helow</p>`, //? работает
+//    components: {// Header, // Form,
+//       Main
+//    }
+// });
+createApp(Main)
+   .component("Main", Main)
+   .use(router)
+   .mount("#app");
+
 // app.component('App', App); //? работает
 // app.component('Header', Header); //? работает
 
@@ -39,7 +43,12 @@ const app = createApp({
 //    template: '<App/>',
 //    components: { App }
 // });
-app.mount('#app')
+// app.mount('#app')
+
+// createApp(App)
+//    .component("fa", FontAwesomeIcon)
+//    .use(router)
+//    .mount("#app");
 
 // app.component('TodoDeleteButton', TodoDeleteButton)
 // app.use(router)

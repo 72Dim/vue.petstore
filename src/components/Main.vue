@@ -167,12 +167,12 @@
          area: function () {
             return this.width * this.length;
          },
-         cartItemCount: function () {
-            return this.cart.length || '';
-         },
-         canAddToCart: function () {
-            // return this.product.availableInventory > this.cartItemCount;
-         }
+         // cartItemCount: function () {
+         //    return this.cart.length || '';
+         // },
+         // canAddToCart: function () {
+         //    return this.product.availableInventory > this.cartItemCount;
+         // }
       },
       watch: { // смотреть, наблюдать
          length: function (newVal, oldVal) {
