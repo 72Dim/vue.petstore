@@ -1,61 +1,49 @@
-import * as Vue from 'vue'
-// import { createRouter, createWebHistory } from 'vue-router'
-import * as VueRouter from 'vue-router'
-// import HomeView from '../views/HomeView.vue'
-// import Header from './components/Header'
-// import Form from '@/components/Form.vue' // не работает
-import Form from '../components/Form.vue' // работает
+import { createRouter, createWebHistory } from 'vue-router'
+
+// import App from '/src/App.vue'            // работает
 import Main from '../components/Main.vue' // работает
+import Form from '../components/Form.vue' // работает
 
-// Vue.use(Router)
+/*//* Смотрим, что возвращает import
+   let url = import.meta.env.BASE_URL;
+   console.log('import.meta.env.BASE_URL: '+url );
+   console.log(import('/src/App.vue')); // работает
+*/
 
-const routes = [
-   {
-      path: '/',
-      name: 'iMain',
-      component: Main,
-      // or component: () => import("@/views/HomePage.vue"),
-      props: true,
-   },
-   {
-      path: '/form',
-      name: 'Form',
-      component: Form,
-      props: true,
-   }
-];
-
-export const router = VueRouter.createRouter({
-   history: VueRouter.createWebHashHistory(),
+// export const router = createRouter({
+const router = createRouter({
    mode: 'history',
-   routes: routes,
-});
+   history: createWebHistory(import.meta.env.BASE_URL),
+   routes: [
+      /* //* Если этот маршрут открыть то шаблон App отображается дважды
+         {
+            path: '/',
+            // component: App //* or see below
+            component: import('/src/App.vue') // работает
+         },
+      */
+      {
+         path: '/main',
+         name: 'iMain',
+         component: Main
+      },
+      {
+         path: '/form',
+         component: Form
+      }
+   ]
+})
+export default router
 
-// export default router;
-//todo export default router  -становится устаревшим (неиспользуемым).
+/* //* export and export default
+   Именованная форма более применима для экспорта нескольких величин.
+   Во время импорта, можно будет использовать одно и то же имя,
+   чтобы обратиться к соответствующему экспортируемому значению.
 
-// const app = Vue.createApp({})
-
-// app.use(router)
-
-// app.mount('#app')
-
-// export default router;
-// export default new Router({
-//    mode: 'history',
-//    routes: [
-//       {
-//          path: '/',
-//          name: 'iMain',
-//          component: Main,
-//          props: true,
-//       },
-//       {
-//          path: '/form',
-//          name: 'Form',
-//          component: Form,
-//          props: true,
-//       },
-//    ]
-// })
+   Касательно экспорта по умолчанию(default ), он может быть только
+   один для каждого отдельного модуля(файла). Дефолтный экспорт может
+   представлять собой функцию, класс, объект или что - то другое.
+   Это значение следует рассматривать как "основное", так как его будет
+   проще всего импортировать.
+*/
 

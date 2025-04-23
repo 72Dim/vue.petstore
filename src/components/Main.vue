@@ -1,6 +1,6 @@
 <template>
    <div class="page-show-product">
-      <my-header :cartItemCount="cartItemCount"></my-header>
+      <!-- <my-header :cartItemCount="cartItemCount"></my-header> -->
       <!-- <div v-for="product in sortedProducts"> -->
       <div v-for="product in products">
          <div class="row">

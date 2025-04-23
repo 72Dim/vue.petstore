@@ -28,3 +28,8 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+E:\b_projects_on_vue\petstore\src\a_main.js
+/src/components/index.vue
+/src/router/*_index.js
+/src/a_main.js
