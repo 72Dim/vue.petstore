@@ -42,30 +42,43 @@ export default {
    // import { RouterLink } from 'vue-router'
 
    // import Header from './components/Header.vue' //? работает
+	import MyHeader from './components/Header.vue';
+
    // import Form from './components/Form.vue'
 // import Main from './components/Main.vue'
    console.dir(RouterLink);
    console.dir(RouterView);
 
+	export default {
+      name: 'App',
+      props: ['cartItemCount'],
+      data() {
+
+		}
+	}
 </script>
 <template>
-   <h1>Hello App!</h1>
-   <p>
-     <!-- <strong>Current route path:</strong> {{ $route.fullPath }} -->
-   </p>
-   <nav>
-      <h4>
-         <!-- <router-link tag="a" to="{name: 'iMain'}"> -->
-         <router-link tag="a" to="/main">
-            Go to Main
-         </router-link>
-      </h4><br>
-     <router-link tag="h4" to="/form">
-         Go to Form
-      </router-link>
-   </nav>
+	<div class="">
+		<my-header :cartItemCount="cartItemCount"></my-header>
+		<!-- <my-header></my-header> -->
+		<h1>Welcome page!</h1>
+		<p>
+		<strong>Current route path:</strong> {{ $route.fullPath }}
+		</p>
+		<nav>
+			<h4>
+				<router-link tag="a" to="/main">
+					Go to Main
+				</router-link>
+			</h4><br>
+		<router-link tag="h4" to="/form">
+				Go to Form
+			</router-link>
+		</nav>
+	</div>
    <main>
-     <RouterView></RouterView>
+     <!-- <RouterView></RouterView> -->
+     <router-view></router-view>
       <!-- I am is main block. -->
    </main>
  </template>

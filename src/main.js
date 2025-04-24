@@ -15,7 +15,7 @@ const app = createApp({
    el: '#app',
    // router: router, //? работает
    // router,            //? сокращёная запись работает
-   template: '<App/>', //'<Main/>', // <'App/>'`<p>Helow</p>`, //? работает
+   template: '<App/>', //'<Main/>', // <'App/>' `<p>Helow</p>`, //? работает
    components: {
       App,
       Header,

@@ -18,10 +18,11 @@ const router = createRouter({
       /* //* Если этот маршрут открыть то шаблон App отображается дважды
          {
             path: '/',
-            // component: App //* or see below
-            component: import('/src/App.vue') // работает
+				name: 'App',
+            component: App //* or see below
+            // component: import('/src/App.vue') // работает
          },
-      */
+		*/
       {
          path: '/main',
          name: 'iMain',
@@ -29,6 +30,7 @@ const router = createRouter({
       },
       {
          path: '/form',
+			name: 'Form',
          component: Form
       }
    ]
