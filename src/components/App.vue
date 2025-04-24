@@ -38,34 +38,37 @@ export default {
    </div>
 </template> -->
 <script>
-   import { RouterLink, RouterView } from 'vue-router'
-   // import { RouterLink } from 'vue-router'
+   // import { createMemoryHistory, createRouter } from 'vue-router'
+   // import HomeView from './HomeView.vue'
+   // import AboutView from './AboutView.vue'
 
    // import Header from './components/Header.vue' //? работает
    // import Form from './components/Form.vue'
-// import Main from './components/Main.vue'
-   console.dir(RouterLink);
-   console.dir(RouterView);
+   // import Main from './components/Main.vue'
 
+   // const routes = [
+   //    // { path: '/', component: HomeView },
+   //    // { path: '/about', component: AboutView },
+   //    { path: '/', componen: Main },
+   //    { path: '/form', componen: Form }
+   // ]
+
+   // const router = createRouter({
+   // history: createMemoryHistory(),
+   // routes,
+   // })
 </script>
 <template>
    <h1>Hello App!</h1>
    <p>
      <!-- <strong>Current route path:</strong> {{ $route.fullPath }} -->
    </p>
-   <nav>
-      <h4>
-         <!-- <router-link tag="a" to="{name: 'iMain'}"> -->
-         <router-link tag="a" to="/main">
-            Go to Main
-         </router-link>
-      </h4><br>
-     <router-link tag="h4" to="/form">
-         Go to Form
-      </router-link>
-   </nav>
+   <!-- <nav>
+     <RouterLink to="/main">Go to Main</RouterLink>
+     <router-link to="/form">Go to Form</router-link>
+   </nav> -->
    <main>
-     <RouterView></RouterView>
-      <!-- I am is main block. -->
+     <!-- <RouterView></RouterView> -->
+      I am is main block.
    </main>
  </template>

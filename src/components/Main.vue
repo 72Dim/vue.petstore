@@ -1,7 +1,5 @@
 <template>
    <div class="page-show-product">
-      <my-header></my-header>
-      <!-- <my-header v-on:click="cartItemCount"></my-header> -->
       <!-- <my-header :cartItemCount="cartItemCount"></my-header> -->
       <!-- <div v-for="product in sortedProducts"> -->
       <!-- <div v-for="product in products">

@@ -1,9 +1,7 @@
-import * as Vue from 'vue'
-// import { createRouter, createWebHistory } from 'vue-router'
-import * as VueRouter from 'vue-router'
-// import HomeView from '../views/HomeView.vue'
-// import Header from './components/Header'
-// import Form from '@/components/Form.vue' // не работает
+import { createRouter, createWebHistory } from 'vue-router'
+
+// import App from '/src/App.vue'            // работает
+import Main from '../components/Main.vue' // работает
 import Form from '../components/Form.vue' // работает
 import Main from '../components/Main.vue' // работает
 
@@ -26,11 +24,8 @@ const routes = [
 ];
 
 export const router = VueRouter.createRouter({
-// 	по умолчанию: "hash" (in browser) | "abstract" (in Node.js)
-// возможные значения: "hash" | "history" | "abstract"
    history: VueRouter.createWebHashHistory(),
-   mode: 'abstract',
-	base: '/',
+   mode: 'history',
    routes: routes,
 });
 
