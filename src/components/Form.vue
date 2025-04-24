@@ -117,6 +117,8 @@
 
 <script type="module">
    import MyHeader from './Header.vue';
+// import MyHeader from './components/Header.vue' //? работает
+
    export default {
       name: 'Form',
       props: ['cartItemCount'],

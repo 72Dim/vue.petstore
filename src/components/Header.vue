@@ -5,10 +5,14 @@
             <div class="col-10 wrap-for-header">
                <header class="text-left header-properties">
                   <h1>
-                     <router-link :to="{name: 'iMain'}">
-                           {{ sitename }}
+                     <!-- <router-link to="{name: 'iMain'}"> -->
+                     <router-link
+								to="/"
+								tag="a">
+									  Home
                      </router-link>
-                     <!-- <RouterLink to="/">Home</RouterLink> -->
+							<!-- {{ sitename }} -->
+                     <!-- <RouterLink to="/"> {{ sitename }}</RouterLink> -->
                   </h1>
                </header>
             </div>
@@ -19,7 +23,7 @@
                      <!-- v-on:click="showCheckout"> -->
                      <span class="glyphicon">
                            <!-- [{{ cartItemCount }}] Checkout -->
-                           [] Checkout
+                           <router-link to="/form">[] Checkout</router-link>
                      </span>
                   </button>
                </div>
@@ -39,9 +43,9 @@
       },
       // props: ['cartItemCount'],
       methods: {
-         // showCheckout() {
-         //    this.$router.push({name: 'Form'});
-         // }
+      //    showCheckout() {
+      //       this.$router.push({name: 'Form'});
+      //    }
       }
    }
 </script>

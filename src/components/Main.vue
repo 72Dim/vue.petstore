@@ -1,12 +1,11 @@
 <template>
    <div class="page-show-product">
-      <my-header :cartItemCount="cartItemCount"></my-header>
+      <my-header></my-header>
+      <!-- <my-header v-on:click="cartItemCount"></my-header> -->
+      <!-- <my-header :cartItemCount="cartItemCount"></my-header> -->
       <!-- <div v-for="product in sortedProducts"> -->
-      <div v-for="product in products">
+      <!-- <div v-for="product in products">
          <div class="row">
-            <!-- <h1 v-text="product.title"
-               v-bind:id="product.id">
-            </h1> -->
             <div class="row">
                <div class="col text-center test-computed-properties">
                   <span data-infa="вычисляемые свойства">
@@ -24,7 +23,7 @@
                   <h1 v-text="product.title"></h1>
                   <p v-html="product.description"></p>
                   <p v-text="product.price"></p>
-                  <!-- <button class="btn btn-primary btn-lg"
+                  !-- <button class="btn btn-primary btn-lg"
                   v-on:click="addToCart(product)"> -->
                   <!-- <button class="btn btn-primary btn-lg"
                      v-on:click="addToCart(product)"
@@ -45,7 +44,7 @@
                   <span class="inventary-message"
                      v-else>
                      Buy Now!
-                  </span> -->
+                  </span> --
                   <div class="rating"
                      data-infa="<span v-bind:class=`{'rating-active': checkRating(n)}`
                            v-for=`n in 5`>☆</span> v-for=`n in 5`>
@@ -71,7 +70,7 @@
             </div>
             <hr />
          </div>
-      </div>
+      </div> -->
    </div><!-- End page showProduct -->
 </template>
 
@@ -80,6 +79,8 @@
 <script>
    // import axios from 'axios';
    import MyHeader from './Header.vue';
+	// import MyHeader from './components/Header.vue' //? работает
+
 
    var APP_LOG_LIFECYCLE_EVENTS = false; // or false webstore.order.method
    export default {

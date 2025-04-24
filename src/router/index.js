@@ -26,8 +26,11 @@ const routes = [
 ];
 
 export const router = VueRouter.createRouter({
+// 	по умолчанию: "hash" (in browser) | "abstract" (in Node.js)
+// возможные значения: "hash" | "history" | "abstract"
    history: VueRouter.createWebHashHistory(),
-   mode: 'history',
+   mode: 'abstract',
+	base: '/',
    routes: routes,
 });
 
