@@ -48,13 +48,16 @@ export default {
 // import Main from './components/Main.vue'
    console.dir(RouterLink);
    console.dir(RouterView);
+	console.log(MyHeader);
+	
 
 	export default {
       name: 'App',
       props: ['cartItemCount'],
       data() {
 
-		}
+		},
+		componentes: { MyHeader },
 	}
 </script>
 <template>
@@ -70,10 +73,10 @@ export default {
 				<router-link tag="a" to="/main">
 					Go to Main
 				</router-link>
-			</h4><br>
-		<router-link tag="h4" to="/form">
-				Go to Form
-			</router-link>
+				</h4><br>
+				<router-link tag="h4" to="/form">
+					Go to Form
+				</router-link>
 		</nav>
 	</div>
    <main>

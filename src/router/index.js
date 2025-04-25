@@ -4,10 +4,18 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Main from '../components/Main.vue' // работает
 import Form from '../components/Form.vue' // работает
 
-/*//* Смотрим, что возвращает import
+/* //* Смотрим, что возвращает import
    let url = import.meta.env.BASE_URL;
    console.log('import.meta.env.BASE_URL: '+url );
+	// import.meta.env.BASE_URL: /
    console.log(import('/src/App.vue')); // работает
+	//* Если этот маршрут открыть то шаблон App отображается дважды
+		{
+			path: '/',
+			name: 'App',
+			// component: App //* or see below
+			component: import('/src/App.vue') // работает
+		},
 */
 
 // export const router = createRouter({
@@ -15,16 +23,8 @@ const router = createRouter({
    mode: 'history',
    history: createWebHistory(import.meta.env.BASE_URL),
    routes: [
-      /* //* Если этот маршрут открыть то шаблон App отображается дважды
-         {
-            path: '/',
-				name: 'App',
-            component: App //* or see below
-            // component: import('/src/App.vue') // работает
-         },
-		*/
       {
-         path: '/main',
+         path: '/',
          name: 'iMain',
          component: Main
       },
