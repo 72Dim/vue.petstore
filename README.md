@@ -1,4 +1,6 @@
 # petstore
 
-This template should help get you started developing with Vue 3 in Vite.
+В этой ветке родительским компонентом будет Main and Form, а потомком Header.
+
+Нужно будет переделать маршруты и другое.
 
