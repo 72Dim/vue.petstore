@@ -12,15 +12,21 @@
 						<h1 v-text="product.title"></h1>
 						<p v-html="product.description"></p>
 						<p v-text="product.price"></p>
-						<!-- <button class="btn btn-primary btn-lg"
-						v-on:click="addToCart(product)"> -->
+                  <!-- v-if="canAddToCart" -->
+						<button class="btn btn-primary btn-lg"
+                     v-if="canAddToCart">
+                     Add to cart
+                  </button>
+                  <button v-else class="btn btn-primary btn-lg"
+                     disabled="true">
+							Add to cart
+						</button>
+
+						<!-- v-on:click="addToCart(product)"> -->
 						<!-- <button class="btn btn-primary btn-lg"
 							v-on:click="addToCart(product)"
 							v-if="canAddToCart(product)">
 								Add to cart
-						</button>
-						<button v-else class="btn btn-primary btn-lg" disabled="true">
-							Add to cart
 						</button> -->
 						<!-- <span class="inventary-message"
 							v-if="product.availableInventory - cartCount(product.id) === 0">
@@ -84,12 +90,14 @@
       name: 'iMain',
 		components: { },
       // props: {
-		// 	cartItemCount: 
+		// 	cartItemCount:
 		// },
-		props: ['cartItemCount'],
+		props: [ 'width', 'length', ],
       data() {
          return {
-            cart: [1001, 1002 ],
+            // width: 3,
+            // length:5,
+            // cart: [1001, 1002],
             products: [
                {
                   id: 1001,
@@ -169,12 +177,23 @@
          area: function () {
             return this.width * this.length;
          },
-         cartItemCount: function () {
-            return this.cart.length || '';
-         },
-         canAddToCart: function (aProduct) {
-				console.dir(aProduct);
-            return this.product.availableInventory > this.cartItemCount;
+         // cartItemCount: function () {
+         //    console.log('I am cartItemCount from Main.vue.');
+         //    return this.cart.length || '';
+         // },
+         canAddToCart: function (product) {
+            console.log('I am canAddToCart');
+            // console.log(this.cart.length);
+            return true;
+            // return false;
+            // if ( 0 < this.cart.length ) {
+               // return true;
+            // }
+
+            // console.dir(product);
+            // console.log(this.cartItemCount);
+            // console.log(this.product.availableInventory);
+            // return this.product.availableInventory > this.cartItemCount;
          }
       },
       watch: { // смотреть, наблюдать
