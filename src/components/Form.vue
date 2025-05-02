@@ -1,9 +1,21 @@
+<!-- <template>
+   <div class="page-show-product">
+      <router-view data-infa="работает">
+         <my-header :cartItemCount="cartItemCount"></my-header>
+      </router-view>
+      <!-- <my-header data-infa="работает" :cartItemCount="cartItemCount"></my-header> --
+
+		<div class="container text-center">
+			<!-- <div v-for="product in sortedProducts"> --
+				<div v-for="product in products" class="row">
+-->
+
 <template>
-   <div class="">
-      <!-- <my-header :cartItemCount="cartItemCount"></my-header> -->
+   <div class="page"><!-- <div class="form-order-product"> -->
+      <my-header data-infa="работает" :cartItemCount="cartItemCount"></my-header>
 		<div class="container text-center">
 			<div class="row">
-				<div class="">
+				<div class="form-order-product">
 					<div class="page-checkout">
 						<!-- Start Checkout page -->
 						<div class="col-md-6">
@@ -96,36 +108,15 @@
 		</div>
    </div>
 </template>
-   <!-- <script type="importmap">
-      {
-         "imports": {
-            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
-         }
-      }
-      </script>
 
-      <script type="module">
-      import { createApp } from 'vue'
-
-      createApp({
-         data() {
-            return {
-            message: 'Hello Vue!'
-            }
-         }
-      }).mount('#app')
-      </script>
-   -->
-
-<script>
-   // import MyHeader from './Header.vue'; // работает
-	// import MyHeader from '/src/components/Header.vue' //? работает
-	// import MyHeader from './Header.vue' //? работает
+<!-- <script setup> --><!-- <script type="importmap"> -->
+<script type="module">
+import MyHeader from './Header.vue'; // работает
+// import MyHeader from '/src/components/Header.vue' //? работает
 
    export default {
       name: 'Form',
-		// componentes: { MyHeader },
-		componentes: {  },
+		components: { 'my-header': MyHeader },
       props: ['cartItemCount'],
       data() {
          return {
@@ -159,9 +150,18 @@
          }
       }
    }
+   /* Ваш импортированный компонент не отображается в шаблоне. Вы можете:
+      Используйте автоматически импортированный компонент как<SpecialHeader>
+      Переименовать <script>в <script setup>(что автоматически открывает импорт в шаблон)
+      добавить функцию настройки export default defineComponent({ setup() { return { Header } } }), чтобы выставлять его вручную
+   */
 </script>
 
-   <!-- Атрибут "scoped" ограничивает область видимости CSS текущим компонентом -->
+   <!--  -->
    <style scoped>
-      /* Все стили файла app.css подкюченны глобально в файле /src/main.js, */
+      /* Атрибут "scoped" ограничивает область
+         видимости CSS текущим компонентом
+            Все стили файла app.css подкюченны
+         глобально в файле /src/main.js.
+      */
    </style>

@@ -1,6 +1,6 @@
 <template>
-   <div class="page-show-product">
-      <!-- <my-header :cartItemCount="cartItemCount"></my-header> -->
+   <div class="page"><!-- <div class="page-show-product"> -->
+      <my-header data-infa="работает" :cartItemCount="cartItemCount"></my-header>
 		<div class="container text-center">
 			<!-- <div v-for="product in sortedProducts"> -->
 				<div v-for="product in products" class="row">
@@ -77,27 +77,24 @@
    </div><!-- End page showProduct -->
 </template>
 
-<!-- <script setup> -->
-<!-- <script type="module"> -->
-<script>
+<script type="module">
    // import axios from 'axios';
-   // import MyHeader from './Header.vue';
+   import MyHeader from './Header.vue';
 	// import MyHeader from './components/Header.vue' //? работает
-
 
    var APP_LOG_LIFECYCLE_EVENTS = false; // or false webstore.order.method
    export default {
       name: 'iMain',
-		components: { },
+		components: { MyHeader },
       // props: {
 		// 	cartItemCount:
 		// },
 		props: [ 'width', 'length', ],
       data() {
          return {
-            // width: 3,
-            // length:5,
-            // cart: [1001, 1002],
+            width: 3,
+            length:5,
+            cart: [1001, 1002],
             products: [
                {
                   id: 1001,

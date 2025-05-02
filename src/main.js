@@ -1,32 +1,28 @@
-import { createApp } from 'vue' //todo рекомендуемый способ создания компонентов Vue
+//todo Ниже рекомендуемый способ создания экзумпляра Vue.
+import { createApp } from 'vue'
 import router from './router/index.js'
 
 import Header from './components/Header.vue' //? работает
 import Form from './components/Form.vue'
 import Main from './components/Main.vue'
 // import App from './components/App.vue' // работает
-// import App from './App.vue' // работает
+import App from './App.vue' // работает
 import './assets/app.css'
 
-console.dir(createApp);
-console.dir(router);
-
-// var cart = [1001, 1002];
 const app = createApp({
    el: '#app',
-   // router: router, //? работает
-   // router,            //? сокращёная запись работает
-   template: '<Header/>', //'<Form/>', '<Header/>' //'<Main/>', //'<Main/>', '<Form/>' <'App/>' `<p>Helow</p>`, //? работает
-   // template: '<my-header></my-header>', //'<Form/>', '<Header/>' //'<Main/>', //'<Main/>', '<Form/>' <'App/>' `<p>Helow</p>`, //? работает
+   // router: router,   //? работает
+   // router,           //? сокращёная запись работает
+   template: '<App/>', //'<Form/>','<Header/>','<Main/>','<App/>', //? работает
    components: {
-      // App,
+      App,
       Header,
       Form,
       Main
    },
-   data() {
-      return { }
-   },
+   // data() {
+   //    return { }
+   // },
    // methods: {
    //    // showFullCart() {
    //    //    return this.cart.length || '';
@@ -46,12 +42,8 @@ const app = createApp({
       // }
    // }
 });
-// console.log(cart);
-
-console.dir(app);
-
+console.log(app.config)
+// console.dir(app);
+// app.component('Header', Header);
 app.use(router);		// использовать, применение
 app.mount('#app');	// устанавливать
-
-console.dir(app);
-

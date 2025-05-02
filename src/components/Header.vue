@@ -25,12 +25,12 @@
                      class="btn btn-default btn-lg"
                      v-on:click="showCheckout">
                      <span class="glyphicon glyphicon-shopping-cart">
-								[{{ cartItemCount }}] Checkout
+								<!-- [{{ cartItemCount }}] Checkout -->
 								<!-- [{{ cartCount }}] Checkout -->
-								<!-- <router-link to="/form" data-infa="работает">
+								<router-link to="/form" data-infa="работает">
 										[] Checkout
 									</router-link>
-								-->
+
                      </span>
                   </button>
                </div>
@@ -38,30 +38,17 @@
          </div>
       </div>
    </header>
-	<main>
-		<!-- И header and main отображаются дважды если открыть теги -->
-		<!-- <RouterView></RouterView> -->
-		<router-view></router-view>
-		<!-- I am is main block. -->
-	</main>
 </template>
 
 <script type="module">
-// let cartLength = 0;
-// import Main from './Main.vue';
-// console.dir(Main);
-// console.dir(Main.computed.cartItemCount);
-
    export default {
-      name: 'my-header',
+      name: 'my-header',   // or name: 'Header',
       components: {},
-      // props: {},
-      props: [],
-
+      props: [],           // or props: {},
       data() {
          return {
             sitename: "Petstore.",
-            cart: [1001, 1002],
+            // cart: [1001, 1002],
             // products: [
             //    {
             //       id: 1001,
@@ -125,15 +112,15 @@
             // this.$router.push({path: '/form'});	// работает
          }
       },
-      computed: { // вычисляемые
-         cartItemCount: function () {
-            // console.log('I am cartItemCount.');
-            return this.cart.length || '';
-         },
-         // showFullCart() {
-         //    return this.cart.length || '';
-         // }
-      }
+      // computed: { // вычисляемые
+      //    cartItemCount: function () {
+      //       // console.log('I am cartItemCount.');
+      //       return this.cart.length || '';
+      //    },
+      //    showFullCart() {
+      //       return this.cart.length || '';
+      //    }
+      // }
 
    }
 </script>
