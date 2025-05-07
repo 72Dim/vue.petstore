@@ -12,8 +12,8 @@
 						<h1 v-text="product.title"></h1>
 						<p v-html="product.description"></p>
 						<p v-text="product.price"></p>
-                  <!-- v-if="canAddToCart" -->
 						<button class="btn btn-primary btn-lg"
+                     v-on:click="addToCart(product)"
                      v-if="canAddToCart">
                      Add to cart
                   </button>
@@ -66,7 +66,7 @@
 						<span data-infa="вычисляемые свойства">
 							Test computed properties.
 						</span>
-						<p>Area is equal to: {{ area }}</p>
+						<p>Area is equal to: <b>{{ area }}</b></p>
 						<button v-on:click="length += 1">Add length</button>
 						<button v-on:click="width  += 1">Add width</button>
 					</div>
@@ -86,15 +86,13 @@
    export default {
       name: 'iMain',
 		components: { MyHeader },
-      // props: {
-		// 	cartItemCount:
-		// },
+      // props: {	cartItemCount: },
 		props: [ 'width', 'length', ],
       data() {
          return {
             width: 3,
             length:5,
-            cart: [1001, 1002],
+            cart: [1001, 1002, 1003],
             products: [
                {
                   id: 1001,
@@ -152,14 +150,16 @@
       },
       filters: {},
       methods: {
-         addToCart: function (aProduct) { // Срабатывает после клика по кн. Add to cart
-            console.log(aProduct);
-				this.cart.push(aProduct.id);
+         addToCart: function (prod) { // Срабатывает по клику на кн. Add to cart
+            // console.log(prod);
+				this.cart.push(prod.id);
          },
-
-         // Сокращённый синтаксис объявления методов по ES6 or ES2015 ниже
-         showCheckout() { // Срабатывает после клика по кн. корзиы
-            // Тернальная операция переключает между true и false
+         /* Сокращённый синтаксис объявления методов
+            по ES6 or ES2015 без function ниже:
+            Срабатывает после клика по кн. корзиы
+            Тернальная операция переключает между true и false
+         */
+         showCheckout() {
             this.showProduct = this.showProduct ? false : true;
          },
 
@@ -174,18 +174,15 @@
          area: function () {
             return this.width * this.length;
          },
-         // cartItemCount: function () {
-         //    console.log('I am cartItemCount from Main.vue.');
-         //    return this.cart.length || '';
-         // },
+         cartItemCount: function () {
+            // console.log('I am cartItemCount from Main.vue.');
+            return this.cart.length || '';
+         },
          canAddToCart: function (product) {
-            console.log('I am canAddToCart');
-            // console.log(this.cart.length);
-            return true;
-            // return false;
-            // if ( 0 < this.cart.length ) {
-               // return true;
-            // }
+            // console.log('I am canAddToCart. cart.length: '+this.cart.length);
+            if ( 0 < this.cart.length ) {
+               return true;
+            }
 
             // console.dir(product);
             // console.log(this.cartItemCount);
