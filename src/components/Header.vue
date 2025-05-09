@@ -27,6 +27,8 @@
                      v-on:click="showCheckout">
                      <span class="glyphicon glyphicon-shopping-cart">
 								[{{ cartItemCount }}] Checkout
+								<!-- [{{ ()=>{return cart.length || '';} }}] Checkout -->
+								<!-- [{{ cart.length }}] Checkout -->
 								<!-- [{{ cartCount }}] Checkout
 								   <router-link to="/form" data-infa="работает">
 								   <router-link :to="{ path: '/form' }" data-infa="работает">
@@ -49,7 +51,7 @@
       props: ['cartItemCount'],  // or props: {},
       data() {
          return {
-            sitename: "Petstore.",
+            sitename: "Petstore.", // continuation
          }
       },
       methods: {

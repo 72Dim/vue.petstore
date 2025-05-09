@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Main from '../components/Main.vue' // работает
 import Form from '../components/Form.vue' // работает
 import MyHeader from '../components/Header.vue' // работает
+import Product from '../components/Product.vue' // 
 
 /* //* Смотрим, что возвращает import
    let url = import.meta.env.BASE_URL;
@@ -31,6 +32,11 @@ const router = createRouter({
          path: '/header',
 			name: 'Header',
          component: MyHeader
+      },
+      {
+         path: '/product/:id', // product/1001
+			name: 'Id',
+         component: Product
       },
    ]
 })

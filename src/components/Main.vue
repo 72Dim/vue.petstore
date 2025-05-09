@@ -1,6 +1,9 @@
 <template>
    <div class="page"><!-- <div class="page-show-product"> -->
-      <my-header data-infa="работает" :cartItemCount="cartItemCount"></my-header>
+      <!-- <my-header data-infa="работает" :cartItemCount="cartItemCount"></my-header> -->
+      <my-header data-infa="работает"
+			:cartItemCount="cartItemCount">
+		</my-header>
 		<div class="container text-center">
 			<!-- <div v-for="product in sortedProducts"> -->
 				<div v-for="product in products" class="row">
@@ -83,16 +86,17 @@
 	// import MyHeader from './components/Header.vue' //? работает
 
    var APP_LOG_LIFECYCLE_EVENTS = false; // or false webstore.order.method
+	const cart = [1001, 1002, 1003];
    export default {
       name: 'iMain',
 		components: { MyHeader },
       // props: {	cartItemCount: },
-		props: [ 'width', 'length', ],
+		props: [ 'width', 'length'],
       data() {
          return {
             width: 3,
             length:5,
-            cart: [1001, 1002, 1003],
+            // cart: [1001, 1002, 1003],
             products: [
                {
                   id: 1001,
@@ -176,11 +180,16 @@
          },
          cartItemCount: function () {
             // console.log('I am cartItemCount from Main.vue.');
-            return this.cart.length || '';
+            // return this.cart.length || '';
+            return cart.length || '';
+				
          },
          canAddToCart: function (product) {
             // console.log('I am canAddToCart. cart.length: '+this.cart.length);
-            if ( 0 < this.cart.length ) {
+            // if ( 0 < this.cart.length ) {
+            //    return true;
+            // }
+            if ( 0 < cart.length ) {
                return true;
             }
 

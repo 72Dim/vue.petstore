@@ -12,7 +12,9 @@
 
 <template>
    <div class="page"><!-- <div class="form-order-product"> -->
-      <my-header data-infa="работает" :cartItemCount="cartItemCount"></my-header>
+      <my-header data-infa="работает"
+			:cartItemCount="cartItemCount">
+		</my-header>
 		<div class="container text-center">
 			<div class="row">
 				<div class="form-order-product">
@@ -83,7 +85,8 @@
 							<!-- <div class="col-md-6"> -->
 							<div class="col-md-12">
 								<div class="form-group-wrapper">
-										<button type="submit" class="btn btn-primary submit" v-on:click="submitForm">
+										<button type="submit" class="btn btn-primary submit"
+											v-on:click="submitForm">
 											Place order
 										</button>
 								</div>
@@ -142,6 +145,22 @@ import MyHeader from './Header.vue'; // работает
                CA: 'California',
                NV: 'Nevada'
             },
+				computed: { // вычисляемые
+					cartItemCount: function () {
+						return cart.length || '';
+					},
+					// canAddToCart: function (product) {
+					// 	// console.log('I am canAddToCart. cart.length: '+cart.length);
+					// 	if ( 0 < cart.length ) {
+					// 		return true;
+					// 	}
+					/*	console.dir(product);
+						console.log(this.cartItemCount);
+						console.log(this.product.availableInventory);
+						return this.product.availableInventory > this.cartItemCount;
+					*/
+					// }
+				},
          }
       },
       method: {
@@ -152,8 +171,10 @@ import MyHeader from './Header.vue'; // работает
    }
    /* Ваш импортированный компонент не отображается в шаблоне. Вы можете:
       Используйте автоматически импортированный компонент как<SpecialHeader>
-      Переименовать <script>в <script setup>(что автоматически открывает импорт в шаблон)
-      добавить функцию настройки export default defineComponent({ setup() { return { Header } } }), чтобы выставлять его вручную
+      Переименовать <script> в <script setup> (что автоматически
+		открывает импорт в шаблон) добавить функцию настройки
+		export default defineComponent({ setup() { return { Header } } }),
+		чтобы выставлять его вручную
    */
 </script>
 

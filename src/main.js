@@ -21,7 +21,7 @@ const app = createApp({
       Main
    },
    // data() {
-   //    return { }
+   //    return {}
    // },
    // methods: {
    //    // showFullCart() {
