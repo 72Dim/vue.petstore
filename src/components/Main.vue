@@ -7,11 +7,12 @@
 		<div class="container text-center">
 			<!-- <div v-for="product in sortedProducts"> -->
 				<div v-for="product in products" class="row">
-					<div data-column="1" class="col products-for-animals"
+					<div data-col="1" class="col-2 products-for-animals"
 						data-infa="<figure></figure><img v-bind:src='product.image' alt='Cat'">
-						<img :src="product.image" alt="Animal">
+						<img :src="product.image"
+                     alt="Animal">
 					</div>
-					<div data-column="2" class="col-8 text-center about-product">
+					<div data-col="2" class="col-8 text-center about-product">
 						<h1 v-text="product.title"></h1>
 						<p v-html="product.description"></p>
 						<p v-text="product.price"></p>
@@ -65,7 +66,7 @@
 							</span>
 						</div>
 					</div>
-					<div dtat-column="3" class="col text-center test-computed-properties">
+					<div data-col="3" class="col-2 text-center test-computed-properties">
 						<span data-infa="вычисляемые свойства">
 							Test computed properties.
 						</span>
@@ -81,23 +82,27 @@
 </template>
 
 <script type="module">
-   // import axios from 'axios';
-   import MyHeader from './Header.vue';
-	// import MyHeader from './components/Header.vue' //? работает
+   import MyHeader from './Header.vue'; // import MyHeader from './components/Header.vue' //? работает
+   import data from '/src/assets/data/products.json';
+   // console.log(data);   console.log(data.products);
 
-   var APP_LOG_LIFECYCLE_EVENTS = false; // or false webstore.order.method
-	const cart = [1001, 1002, 1003];
+   var products = null;
+   const cart = [1001, 1002, 1003];
+
+   var APP_LOG_LIFECYCLE_EVENTS = true; //or false
    export default {
       name: 'iMain',
+      experiment: 555,
 		components: { MyHeader },
       // props: {	cartItemCount: },
-		props: [ 'width', 'length'],
+		// props: [ 'width', 'length'],
       data() {
          return {
             width: 3,
             length:5,
             // cart: [1001, 1002, 1003],
-            products: [
+            products: 'xxx',
+            prods: [
                {
                   id: 1001,
                   title: "Cat Food, 25lb bag",
@@ -174,7 +179,7 @@
             // return this.product.rating - n >= 0;
          }
       },
-      computed: { // вычисляемые
+      computed: { // вычисляемые computed.cartItemCount
          area: function () {
             return this.width * this.length;
          },
@@ -182,7 +187,7 @@
             // console.log('I am cartItemCount from Main.vue.');
             // return this.cart.length || '';
             return cart.length || '';
-				
+
          },
          canAddToCart: function (product) {
             // console.log('I am canAddToCart. cart.length: '+this.cart.length);
@@ -216,20 +221,7 @@
             );
          }
       },
-      filters: {},
-      // created: function() {
-      //    axios.get('/static/products.json')
-      //       .then((response) => {
-      //          this.products = response.data.products;
-      //          console.log(this.products);
-      //    });
-      // },
 
-      beforeUpdate: function () {
-         console.log('All those data changes happend '
-            + 'before the output gets updated.'
-         );
-      },
       // Test huki
       beforeCreate: function () {
          if (APP_LOG_LIFECYCLE_EVENTS) {
@@ -239,6 +231,12 @@
       created: function () {
          if (APP_LOG_LIFECYCLE_EVENTS) {
             console.log("created");
+            // console.log(data);
+            this.products = data.products;
+            products = data.products;
+            console.log(products);
+            this.products = products;
+            // console.log(this.length);
          }
       },
       beforeMount: function () {
@@ -249,11 +247,15 @@
       mounted: function () {
          if (APP_LOG_LIFECYCLE_EVENTS) {
             console.log("mounted");
+            // console.log(data);
          }
       },
       beforeUpdate: function () {
          if (APP_LOG_LIFECYCLE_EVENTS) {
             console.log("beforeUpdate");
+            console.log('All those data changes happend '
+            + 'before the output gets updated.'
+         );
          }
       },
       updated: function () {

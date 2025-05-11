@@ -9,6 +9,7 @@ import Main from './components/Main.vue'
 import App from './App.vue' // работает
 import './assets/app.css'
 
+
 const app = createApp({
    el: '#app',
    // router: router,   //? работает
@@ -19,31 +20,11 @@ const app = createApp({
       Header,
       Form,
       Main
-   },
-   // data() {
-   //    return {}
-   // },
-   // methods: {
-   //    // showFullCart() {
-   //    //    return this.cart.length || '';
-   //    // }
-   // },
-   // computed: { // вычисляемые
-   //    area: function () {
-   //       return this.width * this.length;
-   //    },
-   //    cartItemCount: function () {
-   //       console.log('I am cartItemCount.');
-
-   //       return this.cart.length || '';
-   //    },
-      // showFullCart() {
-      //    return this.cart.length || '';
-      // }
-   // }
+   }
 });
+/*//? console.dir(app);
 console.log(app.config)
-// console.dir(app);
+*/
 // app.component('Header', Header);
 app.use(router);		// использовать, применение
-app.mount('#app');	// устанавливать
+app.mount('#app');	// устанавливать, монтируется
